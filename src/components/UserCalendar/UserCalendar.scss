@@ -1,0 +1,200 @@
+@import "./public/styles/utils/vars";
+@import "./public/styles/utils/mixins";
+
+.p-calendar.p-inputwrapper-filled {
+  &:first-of-type::before {
+    @include icon("\e902", 20, $light-gray);
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &:last-of-type::before {
+    @include icon("\e90d", 20, $light-gray);
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: color 0.3s ease-in-out;
+    z-index: -1;
+  }
+
+  &:hover::before {
+    color: $accent;
+  }
+}
+
+body .p-inputtext {
+  font-size: 14px;
+  transition: none;
+  border-radius: 0;
+  color: $accent;
+  background: transparent;
+  line-height: 40px;
+  border: 1px solid transparent;
+  border-bottom-color: #a3a6b4;
+  width: 100%;
+  display: block;
+  padding: 0;
+  @include text-style;
+  position: relative;
+
+  &:placeholder-shown {
+    color: #d6d6d6;
+  }
+
+  &:enabled:hover,
+  &:enabled:focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: none;
+    border-color: transparent;
+    border-bottom-color: $hover-accent;
+  }
+}
+
+body .p-datepicker:not(.p-datepicker-inline) {
+  background: $main-light;
+  border-radius: 10px;
+  border: 1px solid $accent;
+  box-shadow: 0 3px 18px #eaeaea;
+}
+
+.slider-picker {
+  margin-top: 20px;
+}
+
+.rbc-calendar {
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 2px 6px #e9e9f0;
+  position: relative;
+
+  &:before {
+    content: "Calendar View";
+    font-size: 18px;
+    line-height: 23px;
+    margin-bottom: 15px;
+    @include text-style;
+  }
+
+  & input {
+    padding-right: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  &:hover::before {
+    color: $accent;
+  }
+}
+
+.rbc-month-row {
+  min-height: 135px;
+}
+
+.calendar__wrapper {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding-top: 32px;
+
+  .rbc-btn-group > button:nth-child(n) {
+    color: $gray;
+    @include text-style;
+    font-size: 13px;
+    border: 1px solid $light-gray;
+  }
+
+  .rbc-toolbar button:active,
+  .rbc-toolbar button.rbc-active {
+    background-image: none;
+    box-shadow: none;
+    background-color: transparent;
+    border-color: $light-gray;
+    color: $hover-accent;
+  }
+
+  .rbc-toolbar button:hover,
+  .rbc-toolbar button:active:hover,
+  .rbc-toolbar button:active:focus,
+  .rbc-toolbar button.rbc-active:hover,
+  .rbc-toolbar button.rbc-active:focus {
+    color: $hover-accent;
+    background-color: transparent;
+    border-color: $light-gray;
+  }
+
+  .rbc-btn-group:last-of-type {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  .rbc-btn-group:first-of-type {
+    position: absolute;
+    top: 54px;
+    left: 20px;
+  }
+
+  .rbc-toolbar {
+    margin-bottom: 0;
+  }
+
+  .rbc-toolbar-label {
+    margin-bottom: 24px;
+    font-size: 18px;
+  }
+
+  .rbc-event,
+  .rbc-event.rbc-selected {
+    background: $hover-accent;
+    border-radius: 4px;
+    padding: 7px 14px;
+    @include text-style;
+    font-size: 13px;
+    line-height: 17px;
+  }
+
+  .rbc-time-header-content,
+  .rbc-month-header {
+    line-height: 45px;
+    font-size: 11px;
+    @include text-style;
+    text-transform: uppercase;
+    color: $gray;
+    background: $rbc-header;
+  }
+
+  .rbc-date-cell {
+    padding-right: 14px;
+    padding-top: 17px;
+    line-height: 19px;
+    font-size: 15px;
+    @include text-style;
+
+  }
+
+  .rbc-current-time-indicator {
+    background-color: $hover-accent;
+
+    &::before {
+      content: "";
+      border-radius: 50px;
+      background: $hover-accent;
+      width: 8px;
+      height: 8px;
+      position: absolute;
+      top: -0.27em;
+      left: -0.32em;
+    }
+  }
+
+  .rbc-date-cell.rbc-now {
+    font-weight: 400;
+  }
+}
+
+.rbc-today.rbc-day-bg {
+  background: $rbc-header;
+}

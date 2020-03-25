@@ -1,0 +1,14 @@
+@import "./public/styles/utils/vars";
+@import "./public/styles/utils/mixins";
+
+.aside {
+  overflow-y: auto;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  padding-top: 70px;
+  width: 260px;
+  background-color: $accent;
+  z-index: 1;
+}

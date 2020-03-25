@@ -1,0 +1,71 @@
+@import "./public/styles/utils/vars";
+@import "./public/styles/utils/mixins";
+
+.event {
+  &__error {
+    font-size: 10px;
+    color: #ff5f5f;
+  }
+
+  &__input {
+    background: transparent;
+    border: none;
+    line-height: 40px;
+    border-bottom: 1px solid $gray;
+    width: 100%;
+    display: block;
+
+    &--error {
+      border-bottom-color: #ff5f5f;
+    }
+
+    &:placeholder-shown {
+      color: #d6d6d6;
+    }
+
+    &:enabled:hover,
+    &:enabled:focus {
+      outline: 0 none;
+      outline-offset: 0;
+      box-shadow: none;
+      border-color: transparent;
+      border-bottom-color: $hover-accent;
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  padding: 22px;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+
+  &__color {
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    color: $light-gray;
+
+    &:hover {
+      color: $accent;
+    }
+  }
+
+  &__event {
+    background: transparent;
+    border: none;
+    font-size: 12px;
+
+    &--danger {
+      color: #ff5f5f;
+    }
+
+    &--edit {
+      text-transform: uppercase;
+    }
+  }
+}

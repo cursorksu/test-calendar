@@ -1,0 +1,49 @@
+@import "./public/styles/utils/vars";
+@import "./public/styles/utils/mixins";
+
+.modal {
+  &__wrapper {
+    position: absolute;
+    background: $main-light;
+    border-radius: 10px;
+    border: 1px solid $accent;
+    box-shadow: 0 3px 18px $smog;
+    z-index: 100;
+    max-width: 200px;
+    padding: 22px 25px 77px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border: 9px solid transparent;
+      border-bottom: 11px solid $accent;
+    }
+  }
+
+  &__close {
+    background: transparent;
+    width: 20px;
+    height: 20px;
+    border: none;
+    position: absolute;
+    right: 6px;
+    padding: 0;
+    top: 7px;
+    font-size: 0;
+    transition: color 0.3s ease-in-out;
+
+    &::before {
+      @include icon("\e905", 20, $light-gray);
+    }
+
+    &:hover::before {
+      color: $accent;
+    }
+
+  }
+}
